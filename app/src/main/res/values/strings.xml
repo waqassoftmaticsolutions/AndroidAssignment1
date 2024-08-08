@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Assignment</string>
+    <string name="enter_city">Enter City</string>
+    <string name="enter_city_name">Enter City Name</string>
+    <string name="weather_history">Weather History</string>
+    <string name="go_back">Go Back</string>
+</resources>
