@@ -13,7 +13,6 @@ import kotlinx.coroutines.launch
 class DetailsViewModel: ViewModel() {
     private val weatherData = MutableLiveData<WeatherCityList>()
     val weatherSharedData : LiveData<WeatherCityList> get() = weatherData
-    //private val repository = WeatherRepository()
     fun setDetails(detail: WeatherCityList){
         weatherData.value = detail
     }

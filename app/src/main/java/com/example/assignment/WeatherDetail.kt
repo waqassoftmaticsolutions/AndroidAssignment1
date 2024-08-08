@@ -1,7 +1,9 @@
 
 package com.example.assignment
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -26,6 +28,7 @@ class WeatherDetail : AppCompatActivity() {
         val main: TextView = findViewById(R.id.main_view)
         val description: TextView = findViewById(R.id.description_view)
         val image = findViewById<ImageView>(R.id.weather_icon)
+        val button = findViewById<Button>(R.id.backButton)
         val data = intent.getSerializableExtra(DETAILS) as WeatherCityList
 
         weatherViewModel.setDetails(data)
@@ -44,5 +47,9 @@ class WeatherDetail : AppCompatActivity() {
                 description.text = "Weather Description: ${it.weather[0].description}"
             }
         }
+        button.setOnClickListener {
+            finish()
+        }
     }
+
 }
