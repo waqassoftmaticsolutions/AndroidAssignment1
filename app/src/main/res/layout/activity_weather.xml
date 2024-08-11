@@ -5,17 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-    <TextView
-        android:id="@+id/temp_view"
+    tools:context=".WeatherActivity"
+    android:background="@drawable/background"
+    >
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:layout_margin="5dp"
-        android:text="@string/weather_history"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        />
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#3868B6"
+        >
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/temp_view"
+            android:layout_width="288dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/weather_history"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
@@ -23,4 +46,5 @@
         android:layout_height="match_parent"
         tools:itemCount="5"
         tools:listitem="@layout/design_layout" />
+
 </LinearLayout>
