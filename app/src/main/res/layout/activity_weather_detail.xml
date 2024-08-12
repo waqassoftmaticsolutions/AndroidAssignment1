@@ -23,7 +23,9 @@
             android:layout_width="50dp"
             android:layout_height="60dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
             android:padding="8dp"
+            android:gravity="center"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_arrow_back" />
 
@@ -35,9 +37,9 @@
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/weather_history"
             android:textColor="@color/white"
-            android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>

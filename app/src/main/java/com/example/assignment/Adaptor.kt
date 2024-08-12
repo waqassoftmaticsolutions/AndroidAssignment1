@@ -161,8 +161,9 @@ class Adaptor(
             when(currWeather.weather[0].main){
                 "Rain" -> icon.setImageResource(R.drawable.rainy)
                 "Clouds" -> icon.setImageResource(R.drawable.cloudy)
-                else -> icon.setImageResource(R.drawable.sun)
+                else -> icon.setImageResource(R.drawable.clear)
             }
+            currWeather.city = cityName
 //            temperature.text = "Temperature: ${currWeather.main.temp}"
 //            maxTemperature.text = "Max Temp: ${currWeather.main.temp_max}"
 //            minTemperature.text = "Min Temp: ${currWeather.main.temp_min}"

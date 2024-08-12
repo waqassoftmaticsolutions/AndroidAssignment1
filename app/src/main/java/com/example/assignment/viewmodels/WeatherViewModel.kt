@@ -13,7 +13,7 @@ class WeatherViewModel:ViewModel() {
     private val weatherData = MutableLiveData<Response<OneDayWeatherList>>()
     val weatherSharedData : LiveData<Response<OneDayWeatherList>> get() = weatherData
     private val repository = WeatherRepository()
-    var check: Int? = null
+
     fun fetchData(city: String,apiKey:String){
         GlobalScope.launch{
             try{

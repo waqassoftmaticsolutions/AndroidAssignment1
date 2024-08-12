@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -50,10 +51,9 @@ class WeatherDetail : AppCompatActivity() {
         val data = intent.getSerializableExtra(DETAILS) as WeatherCityList
 
         weatherViewModel.setDetails(data)
-
-
         weatherViewModel.weatherSharedData.observe(this) { currWeather ->
             currWeather?.let {
+                Log.d("MAIN",it.city.toString())
                 val formatter = java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
                 val dateTime = LocalDateTime.parse(currWeather.dt_txt, formatter)
                 val dateTemp = dateTime.toLocalDate()
@@ -66,20 +66,20 @@ class WeatherDetail : AppCompatActivity() {
                 val formattedTempMin = String.format("%.1f", tempMin)
                 val temp = currWeather.main.temp
                 val formattedTemp = String.format("%.1f", temp)
-
+                city.text = currWeather.city
                 day.text = dayOfWeek.toString()
                 date.text = dateTemp.toString()
                 time.text = timeTemp.toString()
                 when(currWeather.weather[0].main){
                     "Rain" -> icon.setImageResource(R.drawable.rainy)
                     "Clouds" -> icon.setImageResource(R.drawable.cloudy)
-                    else -> icon.setImageResource(R.drawable.sun)
+                    else -> icon.setImageResource(R.drawable.clear)
                 }
                 temperature.text = "$formattedTemp °C"
                 maxTemp.text = "$formattedTempMax °C"
                 mintemp.text = "$formattedTempMin °C"
-                humidity.text = currWeather.main.humidity.toString()
-                pressure.text = currWeather.main.pressure.toString()
+                humidity.text = "${currWeather.main.humidity} %"
+                pressure.text = "${currWeather.main.pressure} hPa"
             }
         }
         val button = findViewById<ImageButton>(R.id.back_button_detail)
@@ -87,6 +87,8 @@ class WeatherDetail : AppCompatActivity() {
             backEvent()
         }
     }
+
+
     private fun backEvent(){
         finish()
     }
